@@ -1,5 +1,5 @@
-const inquirer  = require("inquirer");
-const generateHTML = require("./generateHTML")
+import inquirer from "inquirer"
+import generateHTML from "./generateHTML.js"
 
 const questions1 = [{
     name: "teamManagerName",
@@ -24,4 +24,5 @@ const questions1 = [{
 }
 ]
 
-inquirer.prompt(questions1).then(answers => console.log(answers))
+inquirer.prompt(questions1).then(answers => {console.log(answers)
+    console.log(generateHTML())})
