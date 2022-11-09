@@ -30,15 +30,9 @@ const questionsTeamManager = [{
 const menu = [
     {
         name: "menu",
-        type: "checkbox",
+        type: "list",
         message: "select a team member to add next, please choose one(if no one else is to be added to team, select Done)",
-        choices: ["Engineer","Intern","Done"],
-        validate: function(checkbox){
-            if(checkbox.length===1){
-                return true
-            }
-            return false
-        } 
+        choices: ["Engineer", "Intern", "Done"]
         
         
     }
@@ -48,13 +42,14 @@ const menu = [
 inquirer.prompt(questionsTeamManager).then(answers => {
     const answersTeamManager = answers
     console.log(answersTeamManager)
-    inquirer.prompt(menu).then(answers2=>{
-        console.log(answers2)
+   
+        
     })
     
+
   
     
     
-    return
     
-})
+    
+
