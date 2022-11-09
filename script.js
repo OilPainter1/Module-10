@@ -1,7 +1,9 @@
 import inquirer from "inquirer"
 import generateHTML from "./generateHTML.js"
+import fs from "fs"
+import { lookup } from "dns"
 
-const questions1 = [{
+const questionsTeamManager = [{
     name: "teamManagerName",
     type: "input",
     message: "Please enter the Team Manager's name:"
@@ -24,5 +26,35 @@ const questions1 = [{
 }
 ]
 
-inquirer.prompt(questions1).then(answers => {console.log(answers)
-    console.log(generateHTML())})
+//Inquirer question for adding new team members
+const menu = [
+    {
+        name: "menu",
+        type: "checkbox",
+        message: "select a team member to add next, please choose one(if no one else is to be added to team, select Done)",
+        choices: ["Engineer","Intern","Done"],
+        validate: function(checkbox){
+            if(checkbox.length===1){
+                return true
+            }
+            return false
+        } 
+        
+        
+    }
+]
+
+//Program logic
+inquirer.prompt(questionsTeamManager).then(answers => {
+    const answersTeamManager = answers
+    console.log(answersTeamManager)
+    inquirer.prompt(menu).then(answers2=>{
+        console.log(answers2)
+    })
+    
+  
+    
+    
+    return
+    
+})
