@@ -20,7 +20,7 @@ export default function generateHTML(data){
 }
 
 function generateCardManager (name,ID,email,officeNumber){
-    var cardHTML = 
+    let cardHTML = 
     `
     <div class="card" style="width: 18rem;">
         <div class="card-body">
@@ -34,20 +34,32 @@ function generateCardManager (name,ID,email,officeNumber){
     return cardHTML
 }
 
-function generateCard (name,ID,email,officeNumber,gitHub){
-    var cardHTML = 
+function generateCardEngineer (name,ID,email,gitHub){
+    let cardHTML = 
     `
     <div class="card" style="width: 18rem;">
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
+            <h5 class="card-title">${name}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Employee ID: ${ID}</h6>
+            <a href="mailto: ${email}" class="card-link">${email}</a>
+            <a href="https://github.com/${gitHub}" class="card-link">${gitHub}</a>
         </div>
     </div>
     `
     return cardHTML
 }
-
+function generateCardIntern (name,ID,email,school){
+    let cardHTML = 
+    `
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">${name}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Employee ID: ${ID}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">School: ${school}</h6>
+            <a href="mailto: ${email}" class="card-link">${email}</a>
+        </div>
+    </div>
+    `
+    return cardHTML
+}
 
